@@ -1,0 +1,14 @@
+# Blender MTL File: 'kilavuz-yeni-robot.blend'
+# Material Count: 1
+
+newmtl kilavuz-tex.005.png.003.jpg
+Ns 250.000000
+Ka 0.104546 0.104546 0.104546
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd \\home\\app\\mixamo-mini\\tmp\\skins_9929bb93-10b2-4f19-8ffb-b5420a4adf0d.fbm\\kilavuz-tex.005.png
+map_d \\home\\app\\mixamo-mini\\tmp\\skins_9929bb93-10b2-4f19-8ffb-b5420a4adf0d.fbm\\kilavuz-tex.005.png

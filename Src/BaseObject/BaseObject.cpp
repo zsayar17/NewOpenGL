@@ -35,6 +35,28 @@ BaseObject::~BaseObject()
 
 }
 
+const BaseObject& BaseObject::operator=(const BaseObject& object)
+{
+    translateModel = object.translateModel;
+    rotateModel = object.rotateModel;
+    scaleModel = object.scaleModel;
+
+    worldPosition = object.worldPosition;
+    localPosition = object.localPosition;
+
+    worldRotation = object.worldRotation;
+    localRotation = object.localRotation;
+
+    scaleValue = object.scaleValue;
+
+    localFront = object.localFront;
+    localUp = object.localUp;
+
+    objectID = object.objectID;
+
+    return *this;
+}
+
 void BaseObject::bindShader(Shader *shader)
 {
     shaderProgram = shader;

@@ -32,7 +32,6 @@ class Plane : public BaseObject
         Material *material;
         Object *object;
 
-
         static void createPlane();
 };
 

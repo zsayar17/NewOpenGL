@@ -15,7 +15,7 @@ void main()
 
     // Low threshold for discarding
     /*if(texColor.a < 0.1)
-        discard;
-    */
+        discard;*/
+
     FragColor = texColor;
 }

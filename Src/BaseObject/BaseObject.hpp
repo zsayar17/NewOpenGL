@@ -17,6 +17,8 @@ class BaseObject
         BaseObject();
         ~BaseObject();
 
+        const BaseObject& operator=(const BaseObject& object);
+
         virtual void draw() = 0;
 
         void setWorldPosition(glm::vec3 position);

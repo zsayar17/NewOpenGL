@@ -21,9 +21,10 @@ class Camera : public BaseObject
         static Camera* displayCamera;
 
         Camera();
+        const Camera& operator=(const Camera& camera);
 
         void draw() {}
-        glm::mat4 getViewMatrix() const;
+        glm::mat4 getViewMatrix(bool getExceptTranlate = false) const;
         void setDisplayCamera();
 
     private:

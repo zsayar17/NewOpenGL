@@ -3,23 +3,29 @@
 
 #include <iostream>
 #include <vector>
-#include "../../Essantials/glad/glad.h"
+#include "../Window/Window.hpp"
+#include "../Shader/Shader.hpp"
+#include "Object.hpp"
 
-/*class FrameBuffer
+class FrameBuffer
 {
     private:
-        static int frameBufferCounter;
-        static int usingFrameBuffer;
+        static float quadVertices[];
+        static Shader* shaderProgram;
 
-        unsigned int id;
-        unsigned int FBO;
-        unsigned int RBO;
+        unsigned int color_texture;
+        unsigned int fbo;
+        unsigned int rbo;
+        Object* object;
 
     public:
         FrameBuffer(int width, int height);
         ~FrameBuffer();
 
-        void use();
+        void bind();
+        void unbind();
+
+        void draw();
 };
-*/
+
 #endif

@@ -14,6 +14,8 @@
 #include "./Light/SpotLight.hpp"
 #include "./Model/Model.hpp"
 #include "./Primitves/Quad.hpp"
+#include "./Object/FrameBuffer.hpp"
+#include "./Primitves/CubeMap.hpp"
 
 class Game
 {
@@ -30,26 +32,32 @@ class Game
         std::vector<Quad> quads;
 
         Plane plane;
+
         Material b_material;
         Material p_material;
         Material q_material;
+        FrameBuffer *frameBuffer;
         Light** lights;
 
-        Camera camera;
-
         Model model;
+        CubeMap cubeMap;
+
+        Camera camera;
+        //Camera b_camera;
 
         void createCubes();
         void createLights();
         void createPlane();
         void createModel();
         void createQuad();
+        void createSkyBox();
 
         void drawCubes();
         void drawLights();
         void drawModel();
         void drawPlane();
         void drawQuad();
+        void drawSkyBox();
 };
 
 #endif

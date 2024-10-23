@@ -12,6 +12,7 @@ Quad::Quad()
     if (!mainObject) {
         mainObject = new Object();
         createQuad();
+        bindShaderToUBO(Constants::CameraMatricies);
     }
 
     if (!mainShaderProgram) {
@@ -76,11 +77,8 @@ void Quad::draw()
         material->activateTextures();
 
     model = getModelMatrix();
-    view = Camera::displayCamera->getViewMatrix();
 
     shaderProgram->setMat4("model", model);
-    shaderProgram->setMat4("view", view);
-
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     if (isCullingEnabled)

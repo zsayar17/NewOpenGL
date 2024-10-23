@@ -6,7 +6,10 @@ Shader *Model::outlineModelShaderProgram = NULL;
 Model::Model()
 {
     if (outlineModelShaderProgram == NULL)
+    {
         outlineModelShaderProgram = new Shader("VertexShader", "OutlineFragmentShader");
+        bindShaderToUBO(Constants::CameraMatricies);
+    }
 
     isOutline = false;
 }
@@ -41,17 +44,15 @@ void Model::loadModel(const char* path)
 
 void Model::draw()
 {
-    glm::mat4 model, view;
+    glm::mat4 model;
 
     glStencilFunc(GL_ALWAYS, 1, 0xFF);
     glStencilMask(0xFF);
     model = getModelMatrix();
-    view = Camera::displayCamera->getViewMatrix();
 
     shaderProgram->use();
 
     shaderProgram->setMat4("model", model);
-    shaderProgram->setMat4("view", view);
     shaderProgram->setInt("diffuseMap", 0);
     shaderProgram->setInt("specularMap", 1);
     shaderProgram->setFloat("material.shininess", 32.0f);
@@ -60,8 +61,6 @@ void Model::draw()
         meshes[i].draw();
 
     Light::setLightsToShader(shaderProgram);
-
-    drawOutline(model, view);
 }
 
 void Model::drawOutline(glm::mat4& model, glm::mat4& view)

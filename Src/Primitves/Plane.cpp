@@ -10,6 +10,7 @@ Plane::Plane()
     {
         mainObject = new Object();
         createPlane();
+        bindShaderToUBO(Constants::CameraMatricies);
     }
 
     object = mainObject;
@@ -55,7 +56,6 @@ void Plane::bindObject(Object *object)
 void Plane::draw()
 {
     glm::mat4 model;
-    glm::mat4 view;
 
     shaderProgram->use();
     object->use();
@@ -64,10 +64,8 @@ void Plane::draw()
         material->activateTextures();
 
     model = getModelMatrix();
-    view = Camera::displayCamera->getViewMatrix();
 
     shaderProgram->setMat4("model", model);
-    shaderProgram->setMat4("view", view);
 
     Light::setLightsToShader(shaderProgram);
 

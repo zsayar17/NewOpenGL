@@ -62,6 +62,11 @@ void BaseObject::bindShader(Shader *shader)
     shaderProgram = shader;
 }
 
+void BaseObject::bindShaderToUBO(const std::string& bufferName)
+{
+    UniformBufferObject::addShaderToUniformBuffer(shaderProgram->ID, bufferName);
+}
+
 void BaseObject::translateWorld(glm::vec3 axes)
 {
     translateModel = glm::translate(translateModel, axes);

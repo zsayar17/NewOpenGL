@@ -10,6 +10,8 @@
 #include "../../Essantials/Glfw/include/GLFW/glfw3.h"
 #include "../Object/Object.hpp"
 #include "../Shader/Shader.hpp"
+#include "../Object/UniformBufferObject.hpp"
+#include "../Utils/Constants.hpp"
 
 class BaseObject
 {
@@ -44,6 +46,8 @@ class BaseObject
 
 
         void bindShader(Shader *shader);
+
+        void bindShaderToUBO(const std::string& bufferName);
 
         protected:
             static Shader *mainShaderProgram;

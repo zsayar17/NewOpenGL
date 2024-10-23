@@ -28,6 +28,8 @@ class Game
         void draw();
 
     private:
+        Camera camera;
+
         std::vector<Cube> cubes;
         std::vector<Quad> quads;
 
@@ -42,7 +44,6 @@ class Game
         Model model;
         CubeMap cubeMap;
 
-        Camera camera;
         //Camera b_camera;
 
         void createCubes();

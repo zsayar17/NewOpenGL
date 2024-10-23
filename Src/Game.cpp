@@ -26,7 +26,7 @@ void Game::setup()
 
 void Game::update()
 {
-
+    camera.updateCamera();
 }
 
 void Game::draw()

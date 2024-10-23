@@ -11,6 +11,7 @@ Cube::Cube()
     if (!mainObject) {
         mainObject = new Object();
         createCube();
+        bindShaderToUBO(Constants::CameraMatricies);
     }
 
     object = mainObject;
@@ -141,7 +142,6 @@ void Cube::bindMaterial(Material *material)
 void Cube::draw()
 {
     glm::mat4 model;
-    glm::mat4 view;
 
     shaderProgram->use();
     object->use();
@@ -150,10 +150,8 @@ void Cube::draw()
         material->activateTextures();
 
     model = getModelMatrix();
-    view = Camera::displayCamera->getViewMatrix();
 
     shaderProgram->setMat4("model", model);
-    shaderProgram->setMat4("view", view);
 
     Light::setLightsToShader(shaderProgram);
 

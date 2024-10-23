@@ -14,6 +14,7 @@
 #include "../BaseObject/BaseObject.hpp"
 #include "../Shader/Shader.hpp"
 #include "../Object/Object.hpp"
+#include "../Object/UniformBufferObject.hpp"
 
 class Camera : public BaseObject
 {
@@ -26,6 +27,8 @@ class Camera : public BaseObject
         void draw() {}
         glm::mat4 getViewMatrix(bool getExceptTranlate = false) const;
         void setDisplayCamera();
+
+        void updateCamera();
 
     private:
         glm::vec3 eyeVec;

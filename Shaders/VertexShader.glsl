@@ -7,12 +7,16 @@ out vec2 TexCoord;
 out vec3 Normal;
 out vec3 FragPos;
 
+layout (std140) uniform Matrices
+{
+    mat4 projection;
+    mat4 view;
+};
 uniform mat4 model;
-uniform mat4 view;
 
 void main()
 {
-    gl_Position = view * model * vec4(aPos, 1.0f);
+    gl_Position = projection * view * model * vec4(aPos, 1.0f);
 
     TexCoord = vec2(aTexCoord.x, aTexCoord.y);
 

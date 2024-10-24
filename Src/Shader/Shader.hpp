@@ -32,6 +32,8 @@ class Shader
         void setFloat(const std::string &name, float value);
         void setMat4(const std::string &name, glm::mat4 &value);
         void setVec3(const std::string &name, glm::vec3 &value);
+
+        void createGeometryShader(const char *geometryPath);
     private:
         Shader();
 

@@ -10,8 +10,14 @@ Model::Model()
         outlineModelShaderProgram = new Shader("VertexShader", "OutlineFragmentShader");
         bindShaderToUBO(Constants::CameraMatricies);
     }
-
     isOutline = false;
+
+    if (!mainModelShaderProgram) {
+        mainModelShaderProgram = new Shader("VertexShader", "FragmentShader");
+        mainModelShaderProgram->createGeometryShader("ModelGeometry");
+    }
+
+    bindShader(mainModelShaderProgram);
 }
 
 Model::~Model()
@@ -56,6 +62,7 @@ void Model::draw()
     shaderProgram->setInt("diffuseMap", 0);
     shaderProgram->setInt("specularMap", 1);
     shaderProgram->setFloat("material.shininess", 32.0f);
+    shaderProgram->setFloat("time", glfwGetTime());
 
     for (unsigned int i = 0; i < meshes.size(); i++)
         meshes[i].draw();

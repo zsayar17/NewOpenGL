@@ -136,5 +136,21 @@ int Shader::createProgram(int vertexShader, int fragmentShader)
     return program;
 }
 
+void Shader::createGeometryShader(const char *geometryPath) {
+    int geometry_shader;
+    int issuccess;
+    char infoLog[512];
 
+    geometry_shader = createShader(geometryPath, GL_GEOMETRY_SHADER);
+    glAttachShader(ID, geometry_shader);
+    glLinkProgram(ID);
+    glGetProgramiv(ID, GL_LINK_STATUS, &issuccess);
+    if(!issuccess)
+    {
+        memset(infoLog, 0, sizeof(infoLog));
+        glGetProgramInfoLog(ID, 512, NULL, infoLog);
+        std::cout << "ERROR::PROGRAM::LINKING_FAILED: " << infoLog << std::endl;
+    }
+    glDeleteShader(geometry_shader);
+}
 

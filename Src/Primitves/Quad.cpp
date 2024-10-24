@@ -68,7 +68,6 @@ void Quad::draw()
     if (isCullingEnabled)
         glDisable(GL_CULL_FACE);
     glm::mat4 model;
-    glm::mat4 view;
 
     shaderProgram->use();
     object->use();

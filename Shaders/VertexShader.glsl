@@ -12,6 +12,13 @@ layout (std140) uniform Matrices
     mat4 projection;
     mat4 view;
 };
+
+out VS_OUT {
+    vec2 texCoords;
+    vec3 FragPos;
+    vec3 Normal;
+} vs_out;
+
 uniform mat4 model;
 
 void main()
@@ -25,4 +32,8 @@ void main()
     Normal = mat3(transpose(inverse(model))) * aNormal;
 
     FragPos = vec3(model * vec4(aPos, 1.0f));
+
+    vs_out.texCoords = TexCoord;
+    vs_out.FragPos = FragPos;
+    vs_out.Normal = Normal;
 }

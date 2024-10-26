@@ -29,7 +29,7 @@ vec3 GetNormal()
 }
 
 void main() {
-    vec3 normal = GetNormal();
+    /*vec3 normal = GetNormal();
 
     gl_Position = explode(gl_in[0].gl_Position, normal);
     TexCoord = gs_in[0].texCoords;
@@ -46,6 +46,24 @@ void main() {
     gl_Position = explode(gl_in[2].gl_Position, normal);
     TexCoord = gs_in[2].texCoords;
     Normal = normal;
+    FragPos = gs_in[2].FragPos;
+    EmitVertex();*/
+
+    gl_Position = gl_in[0].gl_Position;
+    TexCoord = gs_in[0].texCoords;
+    Normal = gs_in[0].Normal;
+    FragPos = gs_in[0].FragPos;
+    EmitVertex();
+
+    gl_Position = gl_in[1].gl_Position;
+    TexCoord = gs_in[1].texCoords;
+    Normal = gs_in[1].Normal;
+    FragPos = gs_in[1].FragPos;
+    EmitVertex();
+
+    gl_Position = gl_in[2].gl_Position;
+    TexCoord = gs_in[2].texCoords;
+    Normal = gs_in[2].Normal;
     FragPos = gs_in[2].FragPos;
     EmitVertex();
 

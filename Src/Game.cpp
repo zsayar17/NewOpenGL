@@ -122,16 +122,19 @@ void Game::drawLights()
 void Game::createModel()
 {
     //model.loadModel("yeni5-anim/kilavuz-yeni-robot.obj");
-    model.loadModel("backpack/backpack.obj");
+    model[0].loadModel("Planet/planet.obj");
+    model[1].loadModel("Astroid/rock.obj");
     //model.loadModel("Mercedes-Benz_SLS_AMG/Mercedes_AMG_GT3New.obj");
 
-    model.setWorldPosition(glm::vec3(0.0f, 5.0f, 0.0f));
+    model[0].setWorldPosition(glm::vec3(0.0f, 5.0f, 0.0f));
+    model[1].setWorldPosition(glm::vec3(10.0f, 7.0f, 0.0f));
     //model.enableOutline();
 }
 
 void Game::drawModel()
 {
-    model.draw();
+    model[0].draw();
+    model[1].draw();
 }
 
 void Game::drawPlane()

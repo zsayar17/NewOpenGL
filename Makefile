@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall
-LDFLAGS = -lGL -lglfw -ldl -lassimp -g
+LDFLAGS = -lGL -lglfw -ldl -lassimp -g -fstack-protector
 
 SRCDIR = Src
 BUILDDIR = Build

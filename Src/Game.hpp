@@ -41,7 +41,7 @@ class Game
         FrameBuffer *frameBuffer;
         Light** lights;
 
-        Model model;
+        Model model[2];
         CubeMap cubeMap;
 
         //Camera b_camera;

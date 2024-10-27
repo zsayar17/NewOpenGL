@@ -17,11 +17,11 @@ class BaseObject
 {
     public:
         BaseObject();
-        ~BaseObject();
+        virtual ~BaseObject();
 
         const BaseObject& operator=(const BaseObject& object);
 
-        virtual void draw() = 0;
+        virtual void draw() { };
 
         void setWorldPosition(glm::vec3 position);
         void setWorldRotation(glm::vec3 rotation);
@@ -43,6 +43,9 @@ class BaseObject
         glm::vec3 getWorldRotation() const;
 
         glm::vec3 getFront() const;
+
+        glm::mat4 getModelMatrix() const;
+
 
 
         void bindShader(Shader *shader);
@@ -71,7 +74,6 @@ class BaseObject
             static unsigned int objectCounter;
             int                 objectID;
 
-            glm::mat4 getModelMatrix() const;
 };
 
 #endif

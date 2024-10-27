@@ -47,5 +47,6 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/mnt/c/Users/ahmet/Desktop/Linux/push_opengl/Essantials/Glfw"
 }

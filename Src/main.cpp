@@ -12,7 +12,7 @@
 
 int main()
 {
-    Window window(800, 680, "AhmetEngine");
+    Window window(1080, 740, "AhmetEngine");
     Game game;
 
 

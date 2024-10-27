@@ -8,7 +8,6 @@ Model::Model()
     if (outlineModelShaderProgram == NULL)
     {
         outlineModelShaderProgram = new Shader("VertexShader", "OutlineFragmentShader");
-        bindShaderToUBO(Constants::CameraMatricies);
     }
     isOutline = false;
 
@@ -220,6 +219,7 @@ void Model::loadTexture(aiMaterial* mater, Material** material, std::vector<Mate
         type = aiTextureType_DIFFUSE;
     else if (textureType == SPECULAR_MAP)
         type = aiTextureType_SPECULAR;
+
 
     for (unsigned int i = 0; i < mater->GetTextureCount(type); i++)
     {

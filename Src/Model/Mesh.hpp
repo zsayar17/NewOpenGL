@@ -25,6 +25,9 @@ class Mesh
         Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, Material* material);
         ~Mesh();
         void draw();
+        void drawInstanced(int count);
+
+        const Object& getObject() const;
 
     protected:
         std::vector<Vertex> vertices;

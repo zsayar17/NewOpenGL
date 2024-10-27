@@ -121,20 +121,61 @@ void Game::drawLights()
 
 void Game::createModel()
 {
-    //model.loadModel("yeni5-anim/kilavuz-yeni-robot.obj");
-    model[0].loadModel("Planet/planet.obj");
-    model[1].loadModel("Astroid/rock.obj");
-    //model.loadModel("Mercedes-Benz_SLS_AMG/Mercedes_AMG_GT3New.obj");
+    createAstroids();
+}
 
-    model[0].setWorldPosition(glm::vec3(0.0f, 5.0f, 0.0f));
-    model[1].setWorldPosition(glm::vec3(10.0f, 7.0f, 0.0f));
-    //model.enableOutline();
+void Game::createAstroids()
+{
+    model[0].loadModel("Planet/planet.obj");
+    model[0].setWorldPosition(glm::vec3(0.0f, 25.0f, 0.0f));
+    model[0].scale(glm::vec3(4));
+
+    //instanceModel.createInstanceModel("Astroid/rock.obj", 1000);
+    instanceModel.createInstanceModel("Astroid/rock.obj", 100000);
+
+
+    int amount = instanceModel.getInstanceCount();
+    srand(glfwGetTime());
+    /*float radius = 50.0;
+    float offset = 2.5f;*/
+
+    float radius = 150.0;
+    float offset = 25.0f;
+
+    for (int i = 0; i < amount; i++)
+    {
+        float angle = (float)i / (float)amount * 360.0f;
+        float displacement = (rand() % (int)(2 * offset * 100)) / 100.0f - offset;
+        float x = sin(angle) * radius + displacement;
+        displacement = (rand() % (int)(2 * offset * 100)) / 100.0f - offset;
+        float y = displacement * 0.4f;
+        displacement = (rand() % (int)(2 * offset * 100)) / 100.0f - offset;
+        float z = cos(angle) * radius + displacement;
+
+        glm::vec3 position = glm::vec3(x, y, z) + model[0].getWorldPosition();
+        instanceModel[i]->setWorldPosition(position);
+
+        float scale = (rand() % 20) / 100.0f + 0.05;
+        instanceModel[i]->scale(glm::vec3(scale));
+
+        float rotAngle = (rand() % 360);
+        instanceModel[i]->rotateWorld(rotAngle, glm::vec3(0.4f, 0.6f, 0.8f));
+    }
+
+    instanceModel.setInstanceModelToVBO();
+}
+
+void Game::drawAstroids()
+{
+    model[0].draw();
+
+    //instanceModel.drawWithoutInstance();
+    instanceModel.draw();
 }
 
 void Game::drawModel()
 {
-    model[0].draw();
-    model[1].draw();
+    drawAstroids();
 }
 
 void Game::drawPlane()

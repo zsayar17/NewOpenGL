@@ -28,7 +28,7 @@ class Object
         void bindVBO(int size, void* vertices, int usage);
         void bindEBO(int size, void* indices, int usage);
         void bindAttribute(int size, int stride, int offset);
-        void use();
+        void use() const;
 };
 
 #endif

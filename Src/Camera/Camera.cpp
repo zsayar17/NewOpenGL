@@ -10,7 +10,7 @@ Camera::Camera()
     frontVec = glm::vec3(0.0f, 0.0f, -1.0f);
     upVec = glm::vec3(0, 1, 0);
 
-    projection = glm::perspective(glm::radians(45.0f), (float)Window::width / (float)Window::height, 0.1f, 100.0f);
+    projection = glm::perspective(glm::radians(45.0f), (float)Window::width / (float)Window::height, 0.1f, 10000.0f);
 
     if (!UniformBufferObject::DoesConsistTheBuffer(Constants::CameraMatricies))
     {

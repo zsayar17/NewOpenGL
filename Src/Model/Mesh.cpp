@@ -26,6 +26,12 @@ void Mesh::setupMesh()
     object->bindAttribute(2, sizeof(Vertex), offsetof(Vertex, TexCoords));
 }
 
+const Object& Mesh::getObject() const
+{
+    return *object;
+}
+
+
 void Mesh::draw()
 {
     object->use();
@@ -34,4 +40,14 @@ void Mesh::draw()
         material->activateTextures();
 
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+}
+
+void Mesh::drawInstanced(int count)
+{
+    object->use();
+
+    if (material != NULL)
+        material->activateTextures();
+
+    glDrawElementsInstanced(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0, count);
 }

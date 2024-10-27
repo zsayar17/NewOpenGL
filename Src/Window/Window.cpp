@@ -91,7 +91,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void processInput(GLFWwindow* window)
 {
-    float cameraSpeed = 2.5f * Utils::getDeltaTime();
+    float cameraSpeed = 10.f * Utils::getDeltaTime();
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);

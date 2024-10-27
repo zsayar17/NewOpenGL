@@ -42,7 +42,7 @@ void Object::bindAttribute(int size, int stride, int offset)
     glEnableVertexAttribArray(attributeIndex++);
 }
 
-void Object::use()
+void Object::use() const
 {
     if (usingObject != id)
     {

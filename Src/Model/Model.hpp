@@ -28,11 +28,13 @@ class Model : public BaseObject
         void disableOutline();
         void draw();
 
+    protected:
+        std::vector<Mesh> meshes;
+
     private:
         static Shader *mainModelShaderProgram;
         static Shader *outlineModelShaderProgram;
 
-        std::vector<Mesh> meshes;
         std::string directory;
         bool isOutline;
 

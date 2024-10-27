@@ -13,6 +13,7 @@
 #include "./Light/PointLight.hpp"
 #include "./Light/SpotLight.hpp"
 #include "./Model/Model.hpp"
+#include "./Model/InstanceModel.hpp"
 #include "./Primitves/Quad.hpp"
 #include "./Object/FrameBuffer.hpp"
 #include "./Primitves/CubeMap.hpp"
@@ -42,6 +43,8 @@ class Game
         Light** lights;
 
         Model model[2];
+        InstanceModel instanceModel;
+
         CubeMap cubeMap;
 
         //Camera b_camera;
@@ -59,6 +62,10 @@ class Game
         void drawPlane();
         void drawQuad();
         void drawSkyBox();
+
+
+        void createAstroids();
+        void drawAstroids();
 };
 
 #endif

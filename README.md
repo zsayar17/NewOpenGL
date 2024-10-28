@@ -18,4 +18,4 @@ This project demonstrates several advanced OpenGL techniques, including:
 - **Uniform Buffer Object (UBO)**: Utilizes UBOs to share uniform data (e.g., camera) across multiple shaders, improving data management and performance.
 
 # Youtube Link
-**www.youtube.com/watch?v=xvOwmaG7r1s
+**www.youtube.com/watch?v=xvOwmaG7r1s**

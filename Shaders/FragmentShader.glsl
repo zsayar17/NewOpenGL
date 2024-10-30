@@ -103,9 +103,14 @@ float CalcDiffuse(vec3 normal, vec3 lightDir)
 
 float CalcSpecular(vec3 normal, vec3 lightDir, vec3 viewDir)
 {
-    vec3 reflectDir = reflect(-lightDir, normal);
+    /*vec3 reflectDir = reflect(-lightDir, normal);
 
-    return pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+    return pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);*/ // Phong
+
+    // Blinn-Phong
+    vec3 halfwayDir = normalize(lightDir + viewDir);
+
+    return pow(max(dot(normal, halfwayDir), 0.0), material.shininess);
 }
 
 vec3 CalcDirLight(DirLight light, float spec, float diff, vec3 diffuseTextureColor, vec3 specularTextureColor)

@@ -32,12 +32,12 @@ void Game::update()
 void Game::draw()
 {
     frameBuffer->bind();
+    drawSkyBox();
     drawPlane();
     drawCubes();
     //drawLights();
     drawModel();
     drawQuad();
-    drawSkyBox();
     frameBuffer->unbind();
 
     frameBuffer->draw();
@@ -115,7 +115,7 @@ void Game::createLights()
 
 void Game::drawLights()
 {
-    for (int i = 1; i < 5; i++)
+    for (int i = 0; i < 5; i++)
         lights[i]->draw();
 }
 
